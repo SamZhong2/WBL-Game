@@ -522,12 +522,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialGameSpeed: 5
   gameSpeedIncrease: 0.1
+  contact: 0
   ScoreText: {fileID: 945302209}
   GameOverText: {fileID: 1667513834}
-  Countdown1: {fileID: 0}
-  Countdown2: {fileID: 0}
-  Countdown3: {fileID: 0}
-  countDownTimer: 0
+  Countdown: {fileID: 0}
+  countDownTime: 1
+  tempscore: 0
+  score: 0
 --- !u!4 &1121082574
 Transform:
   m_ObjectHideFlags: 0
@@ -574,7 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f59bffe4995b4672bb9e788212de3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 19.62
 --- !u!143 &1327549620
 CharacterController:
   m_ObjectHideFlags: 0
@@ -647,7 +647,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9166667, y: 1}
+  m_Size: {x: 0.9583333, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -662,8 +662,8 @@ Transform:
   m_GameObject: {fileID: 1327549618}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -914,6 +914,7 @@ MonoBehaviour:
     spawnChance: 0.1
   - prefab: {fileID: 142283485783869246, guid: 3d53d12a105af4900a233561fc84202a, type: 3}
     spawnChance: 0.05
+  delete: 1
   minSpawnRate: 1
   maxSpawnRate: 2
 --- !u!4 &1968347968

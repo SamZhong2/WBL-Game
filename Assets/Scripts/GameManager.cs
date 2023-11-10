@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System;
 using System.Threading;
 using System.Collections;
+using System.IO;
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -20,16 +21,25 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI Countdown;
 
     public int countDownTime;
+    public int tempscore;
 
     private IEnumerator CountdowntoStart()
     {
-        yield return new WaitForSeconds(1f);
+        GameOverText.gameObject.SetActive(true);
+        
+
+        yield return new WaitForSeconds(3f);
+
+        
+        NewGame();
+        FindObjectOfType<Spawner>().Delete();
     }
 
 
     private Player player;
     private Spawner spawner;
-    private float score;
+    private Point point;
+    public int score;
 
 
 
@@ -57,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         spawner = FindObjectOfType<Spawner>();
+        point = FindObjectOfType<Point>();
 
 
         NewGame();
@@ -77,10 +88,13 @@ public class GameManager : MonoBehaviour
 
         player.gameObject.SetActive(true);
         spawner.gameObject.SetActive(true);
+        point.gameObject.SetActive(true);
         GameOverText.gameObject.SetActive(false);
+
+        score = tempscore;
        
 
-
+        
 
     }
 
@@ -91,38 +105,37 @@ public class GameManager : MonoBehaviour
 
         player.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
-        GameOverText.gameObject.SetActive(true);
+        point.gameObject.SetActive(false);
+        
+        
         StartCoroutine(CountdowntoStart());
 
 
 
-        //IEnumerator Countdown()
-        //{
-        //    while(countDownTimer > 0)
-        //    {
-        //        Countdown1.text = countDownTimer.ToString();
-
-        //        yield return new WaitForSeconds(1f);
-
-        //        countDownTimer--;
-        //    }
-        //}
-
-        //StartCoroutine(Countdown());
-
-
-        //NewGame();
+      
 
     }
 
-   
+    public void WriteString(bool contact)
+    {
+        string path = "Assets/Resources/Text.txt";
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, true);
+        string str = contact.ToString();
+        writer.WriteLine("1");
+        writer.Close();
+    }
+
 
     private void Update()
     {
-        if (contact)
+        if (contact == true)
         {
+            
             score++;
             contact = false;
+        
+
         }
         ScoreText.text = Mathf.FloorToInt(score).ToString("D5");
 
@@ -131,7 +144,6 @@ public class GameManager : MonoBehaviour
     public void addPoint()
     {
         contact = true;
-        
         
     }
 }

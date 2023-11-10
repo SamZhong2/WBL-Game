@@ -8,6 +8,8 @@ public class Point : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             FindObjectOfType<GameManager>().addPoint();
+            
+
         }
     }
 
