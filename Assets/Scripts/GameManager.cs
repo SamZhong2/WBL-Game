@@ -14,14 +14,14 @@ public class GameManager : MonoBehaviour
     public float initialGameSpeed = 5f;
     public float gameSpeedIncrease = 0.1f;
     public float gameSpeed { get; private set; }
-    public bool contact;
+    //public bool contact;
 
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI GameOverText;
     public TextMeshProUGUI Countdown;
 
     public int countDownTime;
-    public int tempscore;
+    
 
     private IEnumerator CountdowntoStart()
     {
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         point.gameObject.SetActive(true);
         GameOverText.gameObject.SetActive(false);
 
-        score = tempscore;
+        
        
 
         
@@ -129,21 +129,22 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (contact == true)
-        {
-            
-            score++;
-            contact = false;
-        
+        //if (contact == true)
+        //{
 
-        }
-        ScoreText.text = Mathf.FloorToInt(score).ToString("D5");
+        //    score++;
+        //    contact = false;
+
+
+        //}
+        //ScoreText.text = Mathf.FloorToInt(score).ToString("D5");
 
     }
 
     public void addPoint()
     {
-        contact = true;
-        
+        score++;
+        ScoreText.text = Mathf.FloorToInt(score).ToString("D5");
+
     }
 }
