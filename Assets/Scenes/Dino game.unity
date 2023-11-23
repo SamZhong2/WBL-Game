@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40aa6503785aa4c4598da8d664f66e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8
-  gravity: 19.62
+  jumpForce: 20
+  gravity: 10
 --- !u!143 &145156516
 CharacterController:
   m_ObjectHideFlags: 0
@@ -520,15 +520,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9474c441d8e477aa9a19e51007d1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
   initialGameSpeed: 5
-  gameSpeedIncrease: 0.1
-  contact: 0
   ScoreText: {fileID: 945302209}
   GameOverText: {fileID: 1667513834}
-  Countdown: {fileID: 0}
   countDownTime: 1
-  tempscore: 0
   score: 0
+  score_in_row: 0
 --- !u!4 &1121082574
 Transform:
   m_ObjectHideFlags: 0
@@ -905,13 +903,13 @@ MonoBehaviour:
   - prefab: {fileID: 2843776658114619102, guid: c6b24a804f7614f3ba4d195447c8c3c5, type: 3}
     spawnChance: 0.18
   - prefab: {fileID: 6316832027997029784, guid: 16b4344cb461c4e62a9f8f2982993ed5, type: 3}
-    spawnChance: 0.16
+    spawnChance: 0.18
   - prefab: {fileID: 5373897398331943963, guid: ca2740aa229ae49c9a77211c8f52a822, type: 3}
-    spawnChance: 0.14
+    spawnChance: 0.15
   - prefab: {fileID: 4199847094620407627, guid: c1e972d8175504952915e5d1c9b75a89, type: 3}
-    spawnChance: 0.12
+    spawnChance: 0.13
   - prefab: {fileID: 1559504122018138128, guid: 1503027f144fe4cdd9877337528f8b30, type: 3}
-    spawnChance: 0.1
+    spawnChance: 0.11
   - prefab: {fileID: 142283485783869246, guid: 3d53d12a105af4900a233561fc84202a, type: 3}
     spawnChance: 0.05
   delete: 1
