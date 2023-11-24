@@ -34,11 +34,12 @@ public class GameManager : MonoBehaviour
         
         
 
-        if (score_in_row >= 15)
+        if (score_in_row >= 5)
         {
             initialGameSpeed += 2;
+            level++;
         }
-        level++;
+        
         score_in_row = 0;
         NewGame();
         FindObjectOfType<Spawner>().Delete();
@@ -76,33 +77,47 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<Player>();
-        spawner = FindObjectOfType<Spawner>();
-        point = FindObjectOfType<Point>();
+       
+            player = FindObjectOfType<Player>();
+            spawner = FindObjectOfType<Spawner>();
+            point = FindObjectOfType<Point>();
+
+            NewGame();
+        
 
 
-        NewGame();
+
+        
+        
+        
     }
 
     public void NewGame()
     {
-        Obstacle[] obstacles = FindObjectsOfType<Obstacle>();
-
-        foreach (var obstacle in obstacles)
-        {
-            Destroy(obstacle.gameObject);
-        }
-
-
-        gameSpeed = initialGameSpeed;
+        GameOverText.gameObject.SetActive(false);
 
         
+            Obstacle[] obstacles = FindObjectsOfType<Obstacle>();
+
+            foreach (var obstacle in obstacles)
+            {
+                Destroy(obstacle.gameObject);
+            }
 
 
-        player.gameObject.SetActive(true);
-        spawner.gameObject.SetActive(true);
-        point.gameObject.SetActive(true);
-        GameOverText.gameObject.SetActive(false);
+            gameSpeed = initialGameSpeed;
+
+
+
+
+            player.gameObject.SetActive(true);
+            spawner.gameObject.SetActive(true);
+            point.gameObject.SetActive(true);
+        
+
+        
+        
+        
 
 
     }
@@ -117,6 +132,8 @@ public class GameManager : MonoBehaviour
         spawner.gameObject.SetActive(false);
         point.gameObject.SetActive(false);
 
+        GameOverText.text = "respawning...";
+
         GameOverText.gameObject.SetActive(true);
         StartCoroutine(CountdowntoStart());
 
@@ -126,18 +143,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //public void LevelUp()
-    //{
-    //    gameSpeed = 0f;
-    //    enabled = false;
+    public void LevelUp()
+    {
+        gameSpeed = 0f;
+        enabled = false;
 
-    //    player.gameObject.SetActive(false);
-    //    spawner.gameObject.SetActive(false);
-    //    point.gameObject.SetActive(false);
+        player.gameObject.SetActive(false);
+        spawner.gameObject.SetActive(false);
+        point.gameObject.SetActive(false);
 
-    //    LevelUpText.gameObject.SetActive(true);
-    //    StartCoroutine(CountdowntoStart());
-    //}
+        GameOverText.text = "LEVEl UP...";
+
+        GameOverText.gameObject.SetActive(true);
+        StartCoroutine(CountdowntoStart());
+    }
 
     public void WriteString(bool contact)
     {
@@ -175,10 +194,10 @@ public class GameManager : MonoBehaviour
             score_in_row = 0;
         }
 
-        if (score_in_row >= 15)
+        if (score_in_row >= 5)
         {
 
-            GameOver();
+            LevelUp();
         }
 
     }
