@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
@@ -8,6 +9,10 @@ public class Player : MonoBehaviour
 
     public float jumpForce = 8f;
     public float gravity = 9.81f * 2f;
+    public int jumps = 0;
+    
+
+    
 
     private void Awake()
     {
@@ -30,6 +35,8 @@ public class Player : MonoBehaviour
             if (Input.GetButton("Jump"))
             {
                 direction = Vector3.up * jumpForce;
+                jumps++;
+                //FindObjectOfType<GameManager>().WriteString(Time.deltaTime);
             }
         }
 
@@ -40,6 +47,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
+            
             FindObjectOfType<GameManager>().GameOver();
         }
     }

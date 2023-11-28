@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         
         
 
-        yield return new WaitForSeconds(3f);
+        
         
         
 
@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
         {
             initialGameSpeed += 2;
             level++;
+            yield return new WaitForSeconds(6f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(3f);
         }
         
         score_in_row = 0;
@@ -85,8 +90,6 @@ public class GameManager : MonoBehaviour
             NewGame();
         
 
-
-
         
         
         
@@ -94,6 +97,8 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
+        
+
         GameOverText.gameObject.SetActive(false);
 
         
@@ -158,7 +163,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(CountdowntoStart());
     }
 
-    public void WriteString(bool contact)
+    public void WriteString(double contact)
     {
         string path = "Assets/Resources/Text.txt";
         //Write some text to the test.txt file
@@ -187,7 +192,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         score_in_row++;
-        ScoreText.text = Mathf.FloorToInt(score).ToString("D5");
+        ScoreText.text = Mathf.FloorToInt(score).ToString("D3");
 
         if (level >= 3)
         {

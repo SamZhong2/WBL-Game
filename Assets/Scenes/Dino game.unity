@@ -155,8 +155,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40aa6503785aa4c4598da8d664f66e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   jumpForce: 10
   gravity: 25
+=======
+  jumpForce: 7
+  gravity: 15
+  jumps: 0
+>>>>>>> Stashed changes
 --- !u!143 &145156516
 CharacterController:
   m_ObjectHideFlags: 0
