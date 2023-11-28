@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40aa6503785aa4c4598da8d664f66e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
-  gravity: 10
+  jumpForce: 10
+  gravity: 25
 --- !u!143 &145156516
 CharacterController:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00000
+  m_text: 000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48f3decaf6a874995b40a6a3c8ea5bea, type: 2}
   m_sharedMaterial: {fileID: 5727830579333574224, guid: 48f3decaf6a874995b40a6a3c8ea5bea, type: 2}

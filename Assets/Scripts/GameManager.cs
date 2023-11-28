@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
 
 
         //}
-        //ScoreText.text = Mathf.FloorToInt(score).ToString("D5");
+        //ScoreText.text = Mathf.FloorToInt(score).ToString("D3");
 
     }
 
